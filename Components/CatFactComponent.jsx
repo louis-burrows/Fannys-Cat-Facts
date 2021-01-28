@@ -1,12 +1,14 @@
-import styles from '../styles/Home.module.scss'
+import styles from '../styles/CatFactComponent.module.scss'
 
 export default function CatFactComponent(props) {
 
-  console.log(props.catFact)
   return (
     <>
-      <p>{props.catFact}</p>
-      <button onClick={() => props.changeCatFacts(props.index)} key={props.key}>Delete Cat Fact From List</button>
-    </>
+      <div className={styles.factContainer}>
+        <p className={styles.factText}>{props.catFact}</p>
+        <button className={styles.deleteButton} onClick={() => props.changeCatFacts(props.index)}>Delete Cat Fact From List</button>
+      </div>
+      <div className={styles.spacerLine}></div>
+      </>
   )
 }

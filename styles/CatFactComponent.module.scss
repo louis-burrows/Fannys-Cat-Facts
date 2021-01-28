@@ -1,0 +1,30 @@
+.factContainer {
+  display: flex;
+  justify-content: center;
+  margin: 14px auto;
+  gap: 10px;
+  width: 90%;
+  max-width: 600px;
+  .factText {
+    font-style: italic;
+  }
+  .deleteButton {
+    background-color: rgb(245, 167, 167);
+    border-radius: 5px;
+    border: 2px solid white;
+    height: 24px;
+    min-width: 175px;
+    word-wrap: none;
+    &:hover {
+      background-color: rgb(230, 253, 209);
+      cursor: pointer;
+    }
+  }
+}
+.spacerLine {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 400px;
+  height: 2px;
+  background-color: rgb(196, 192, 192);
+}

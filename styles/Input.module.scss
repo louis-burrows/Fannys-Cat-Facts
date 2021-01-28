@@ -1,0 +1,18 @@
+.inputWrapper {
+  .fetchButton, .postButton {
+    padding: 5px;
+    border-radius: 5px;
+    border: 2px solid rgb(238, 140, 157);
+    margin: 10px 0px 25px 0px;
+    font-weight: 600;
+    &:hover {
+      background-color: rgb(230, 253, 209);
+      cursor: pointer;
+    }
+  }
+  .catText {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 600px;
+  }
+}

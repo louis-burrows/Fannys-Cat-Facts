@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Head from 'next/head'
 
@@ -9,10 +9,18 @@ import List from "../Components/List"
 
 export default function Home() {
 
-  const [catFact, setCatFact] = useState(["Cats are awesome"]);
+  const [catFact, setCatFact] = useState("Cats are awesome");
 
   const [listOfCatFacts, editCatFacts] = useState([])
+  
+  
 
+  useEffect(() => {
+    localStorage.setItem("listOfFactsOnLocal", JSON.stringify(listOfCatFacts))
+    console.log(JSON.parse(localStorage.getItem("listOfFactsOnLocal")))
+  }, [listOfCatFacts]);
+  
+  
   const returnFromAPI = () => {
     fetch("https://catfact.ninja/fact")
       .then(response => {
@@ -33,12 +41,21 @@ export default function Home() {
 
   return (
     <>
-    <div className={styles.sassWorks}>
-      Hello
+    <Head>
+      <title>Fanny's Cat Facts</title>
+      <link rel="icon" href="/favicon.ico" />
+    </Head>
+    <div className={styles.appContainer}>
+      <h1 className={styles.title}>
+        Welcome to your personal vault of cat knowledge.
+      </h1>
+  
+      <Input returnFromAPI={returnFromAPI} catFact={catFact} addAFact={addAFact}/>
+      <List listOfCatFacts={listOfCatFacts} editCatFacts={editCatFacts}/>
     </div>
-
-    <Input returnFromAPI={returnFromAPI} catFact={catFact} addAFact={addAFact}/>
-    <List listOfCatFacts={listOfCatFacts} editCatFacts={editCatFacts}/>
     </>
   )
 }
+
+
+

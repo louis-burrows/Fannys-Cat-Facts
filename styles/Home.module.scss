@@ -1,3 +1,9 @@
-.sassWorks {
-  color: red;
+.appContainer {
+   text-align: center;
+  margin: 0 auto;
+
+  .title {
+    padding: 20px;
+    color: rgb(104, 44, 44);
+  }
 }
