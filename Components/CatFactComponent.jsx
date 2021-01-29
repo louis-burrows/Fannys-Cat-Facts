@@ -5,6 +5,7 @@ export default function CatFactComponent(props) {
   return (
     <>
       <div className={styles.factContainer}>
+        <img className={styles.kitty} src="/images/catCartoon.png" alt="Picture of the author"/>
         <p className={styles.factText}>{props.catFact}</p>
         <button className={styles.deleteButton} onClick={() => props.changeCatFacts(props.index)}>Delete Cat Fact From List</button>
       </div>

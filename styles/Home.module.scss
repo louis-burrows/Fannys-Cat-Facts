@@ -1,9 +1,17 @@
 .appContainer {
-   text-align: center;
+  text-align: center;
   margin: 0 auto;
 
   .title {
     padding: 20px;
-    color: rgb(104, 44, 44);
+    color: rgb(115, 145, 241);
+  }
+}
+
+@media (max-width: 768px) {
+  .appContainer {
+    .title {
+      font-size: 20px;
+    }
   }
 }
