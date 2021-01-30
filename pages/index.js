@@ -9,12 +9,18 @@ import List from "../Components/List";
 
 export default function Home() {
 
-  const [catFact, setCatFact] = useState("Cats are awesome!");
+  const localCall = () => {
+    if (typeof localStorage !== "undefined") {
+      return JSON.parse(localStorage.getItem("listOfFactsOnLocal"));
+    } 
+    return [];
+  };
 
-  const [listOfCatFacts, editCatFacts] = useState([])
+  const [catFact, setCatFact] = useState("Cats are awesome!");
+  
+  const [listOfCatFacts, editCatFacts] = useState(localCall())
   
   const [buttonDisabled, toggleDisabled] = useState(false)
-
 
   useEffect(() => {
     localStorage.setItem("listOfFactsOnLocal", JSON.stringify(listOfCatFacts))
