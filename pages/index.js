@@ -11,13 +11,16 @@ export default function Home() {
 
   const localCall = () => {
     if (typeof localStorage !== "undefined") {
-      return JSON.parse(localStorage.getItem("listOfFactsOnLocal"));
+      const listOfCatFactsLocalStorage = localStorage.getItem("listOfFactsOnLocal");
+      if (listOfCatFactsLocalStorage !== null) {
+        return JSON.parse(listOfCatFactsLocalStorage);
+      }
     } 
     return [];
   };
 
   const [catFact, setCatFact] = useState("Cats are awesome!");
-  
+
   const [listOfCatFacts, editCatFacts] = useState(localCall())
   
   const [buttonDisabled, toggleDisabled] = useState(false)
